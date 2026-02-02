@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine</title>
+
+<style>
+body{
+    background: linear-gradient(to bottom, #fbc2eb, #a6c1ee);
+    font-family: Arial;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0;
+}
+
+.box{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+button{
+    padding:10px 20px;
+    font-size:18px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    margin:10px;
+}
+
+#yes{
+    background:#ff4d6d;
+    color:white;
+}
+
+#no{
+    background:#adb5bd;
+    position:absolute;
+}
+
+#msg{
+    margin-top:15px;
+    font-size:16px;
+    color:#d6336c;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>❤️ Anushka ❤️</h1>
+    <h2>Will you be my Valentine?</h2>
+
+    <button id="yes" onclick="yesClick()">Yes 💖</button>
+    <button id="no" onclick="noClick()">No 😅</button>
+
+    <div id="msg"></div>
+</div>
+
+<script>
+let count = 0;
+
+const messages = [
+"😏 Nice try!",
+"😂 You tested my patience!",
+"😌 Still clicking no?",
+"🙄 Come on now!",
+"😜 That was close!",
+"🤭 Try harder!",
+"😆 I’m not giving up!",
+"😎 You’re enjoying this!",
+"😅 Almost tired?",
+"😉 Just say yes!",
+"🥲 My heart is waiting!",
+"😤 You’re stubborn!",
+"😇 Be kind!",
+"😝 This is fun!",
+"😋 Last few chances!",
+"😬 Don’t make me sad!",
+"🥹 Think again!",
+"😔 Okay, last one!"
+];
+
+function noClick(){
+    const msgBox = document.getElementById("msg");
+
+    if(count < 18){
+        msgBox.innerHTML = messages[count];
+        moveNo();
+        count++;
+    } else {
+        alert("Okay, I understand 🙂");
+        msgBox.innerHTML = "💔 Okay, I understand 🙂";
+        document.getElementById("no").style.display="none";
+    }
+}
+
+function moveNo(){
+    const noBtn = document.getElementById("no");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+function yesClick(){
+    alert("You made my day ❤️");
+}
+</script>
+
+</body>
+</html>
